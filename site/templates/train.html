@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Generate Random Player{% endblock %}
+{% block style %}{{url_for('static', filename='styles/test.css')}}{% endblock%}
+{% block content%}
+    	<style>
+    	</style>
+		<div class="test_div">
+			<div class='title'>
+				<h1 class='test_text'>Is this street clean or dirty?</h1>
+			</div>
+			<div class='img_div'>
+				<img id='image' src='{{values[0]}}'>
+			</div>
+			<div class='train_div'>
+				<form action='#' method='POST'>
+					<p><input class="button" type='submit' name='submit' value='Clean'><input class="button" type='submit' name='submit' value='Dirty'></p>
+					<p><input class="not_street" type='submit' name='submit' value='Not a Street'></p>
+				</form>
+			</div>
+    	</div>
+{% endblock %}

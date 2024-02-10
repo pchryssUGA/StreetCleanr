@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% block title%}Home Page{% endblock%}
+{% block style %}{{url_for('static', filename='styles/test.css')}}{% endblock%}
+{% block content%}
+<div class='title'>
+
+  <style>
+    .dropzone {
+        border: 2px dashed #92D293;
+        height: 400px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 50px;
+    }
+
+	.dz-preview {
+		display: none;
+	}
+    </style>
+
+	<div class="test_div">
+		<h1 class="test_text">
+			Test Image Classifier
+	  </h1>
+
+	  {{ dropzone.create('test.result') }}
+	  {{ dropzone.load_js() }}
+	  {{ dropzone.config() }}
+
+
+	</div>
+
+
+  {% endblock %}

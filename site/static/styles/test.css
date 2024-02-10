@@ -1,0 +1,56 @@
+* {
+    color: black;
+}
+
+    
+#image {
+    height: 400px;
+    width: 600px;
+	border: 5px solid black;
+	border-radius: 15px;
+	margin-bottom: 15px;
+}
+
+.guess_div {
+font-size: 30px;
+}
+
+.generate_div {
+	font-size: 30px;
+}
+
+.report_div {
+	font-size: 30px;
+}
+
+.desc_div {
+	font-size: 20px;
+}
+
+.warning_div {
+	font-size: 15px;
+}
+
+.button {
+	font-weight: 400;
+	margin-top: 10px;
+}
+
+.test_div {
+	display: block;
+	text-align: center;
+	justify-content: center;
+	margin: 20px;
+}
+
+.test_text {
+	font-size: 60px;
+}
+
+.result {
+	display: block;
+	text-align: center;
+	justify-content: center;
+	margin: 20px;
+	margin-top: 50px;
+}

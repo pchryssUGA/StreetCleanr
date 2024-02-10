@@ -1,0 +1,65 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #F5F5DC;
+    color: #013369;
+}
+
+.navbar {
+    background-color: #92D293!important;
+}
+.navbar-brand {
+    color: black!important;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 30px;
+}
+
+.navbar-toggler {
+    color: #EAEAEA!important;
+    border-color: black!important;
+    border-width: 2px;
+}
+
+.nav-link {
+    color: black!important;
+    font-size: 25px;
+}
+
+#logo {
+    color:black;
+    font-size: 30px;
+}
+
+
+.test_div {
+	display: block;
+	text-align: center;
+	justify-content: center;
+	margin: 20px;
+}
+
+.test_text {
+	font-size: 60px;
+}
+
+.train_div {
+    font-size: 60px;
+}
+
+.button {
+    font-size: 40px;
+    margin-left: 10px;
+    width: 200px;
+    background-color:#92D293
+}
+
+.not_street {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    background-color:#92D293
+
+}
+
+#locationTextField {
+    width: 500px;
+}

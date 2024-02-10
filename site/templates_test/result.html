@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block title%}Home Page{% endblock%}
+{% block style %}{{url_for('static', filename='styles/test.css')}}{% endblock%}
+{% block content%}
+<div class='title'>
+    <div class="result">
+        <div class='img_div'>
+            <img id='image' src='{{values[1]}}'>
+        </div>
+        <h1>
+            This is a {{values[0]}} street!
+        </h1>
+        <form action='../test' method='POST'>
+            <input class="button" type='submit' name='submit' value='Test New Image' style="font-size: 40px;"></p>
+            <input type='hidden' name='new' value='new'>
+            <input type='hidden' name='file' value='{{values[1]}}'>
+        </form>
+    </div>
+
+  {% endblock %}
