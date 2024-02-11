@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
+<<<<<<< HEAD
 {% block title%}Map{% endblock%}
+=======
+{% block title%}Players{% endblock%}
+>>>>>>> 7efec13a183545f63219c10de9048811a0f3508d
 {% block content%}
 
 
@@ -7,7 +11,11 @@
 <style>
 
     #map {
+<<<<<<< HEAD
         height: 70%; 
+=======
+        height: 100%; 
+>>>>>>> 7efec13a183545f63219c10de9048811a0f3508d
         width: 100%; 
     }
 </style>
@@ -33,7 +41,11 @@
 
     var request = {
       origin: new google.maps.LatLng({{values[0]}}, {{values[1]}}), 
+<<<<<<< HEAD
       destination: new google.maps.LatLng( {{values[0]}}, {{values[1]}}),
+=======
+      destination: new google.maps.LatLng({{values[0]}}, {{values[1]}}),
+>>>>>>> 7efec13a183545f63219c10de9048811a0f3508d
       waypoints: [
       {location: '{{values[2]}}'},
       {location: '{{values[3]}}'},
@@ -51,6 +63,7 @@
       }
     });
   </script> 
+<<<<<<< HEAD
   <div class="map_all">
     <div class="map_div">
       <form action='/route' method="POST"> 
@@ -58,4 +71,6 @@
       </form>
     </div>
   </div>
+=======
+>>>>>>> 7efec13a183545f63219c10de9048811a0f3508d
 {% endblock %}
