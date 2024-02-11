@@ -13,9 +13,22 @@
 			</div>
 			<div class='train_div'>
 				<form action='#' method='POST'>
-					<p><input class="button" type='submit' name='submit' value='Clean'><input class="button" type='submit' name='submit' value='Dirty'></p>
-					<p><input class="not_street" type='submit' name='submit' value='Not a Street'></p>
+					<input type='hidden' name='new' value='true'>					
+					<input type='hidden' name='url' value='{{values[0]}}'>					
+					<input class="button" type='submit' name='type' value='clean'>
 				</form>
+				<form action='#' method='POST'>
+					<input type='hidden' name='new' value='true'>					
+					<input type='hidden' name='url' value='{{values[0]}}'>					
+					<input class="button" type='submit' name='type' value='dirty'>
+				</form>
+
+				<form action='#' method='POST'>
+					<input type='hidden' name='new' value='true'>					
+					<input type='hidden' name='url' value='{{values[0]}}'>					
+					<input class="button" type='submit' name='type' value='trash'>
+				</form>
+				
 			</div>
     	</div>
 {% endblock %}
