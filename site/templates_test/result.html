@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-{% block title%}Home Page{% endblock%}
+{% block title%}Result{% endblock%}
 {% block style %}{{url_for('static', filename='styles/test.css')}}{% endblock%}
 {% block content%}
 <div class='title'>
@@ -11,9 +11,9 @@
         <div><h1>This is a {{values[1]}} image!</h1></div>
 
         <form action='../test' method='POST'>
-            <input class="button" type='submit' name='submit' value='Test New Image' style="font-size: 40px;"></p>
+            <input class="test_new_button" type='submit' name='submit' value='New test' style="font-size: 35px;"></p>
             <input type='hidden' name='new' value='new'>
-            <input type='hidden' name='file' value='{{values[1]}}'>
+            <input type='hidden' name='file' value='{{values[0]}}'>
         </form>
     </div>
 

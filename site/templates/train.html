@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Generate Random Player{% endblock %}
+{% block title %}Train{% endblock %}
 {% block style %}{{url_for('static', filename='styles/test.css')}}{% endblock%}
 {% block content%}
     	<style>
@@ -13,20 +13,11 @@
 			</div>
 			<div class='train_div'>
 				<form action='#' method='POST'>
-					<input type='hidden' name='new' value='true'>					
+					<input type='hidden' name='new' value='true'>				
 					<input type='hidden' name='url' value='{{values[0]}}'>					
-					<input class="button" type='submit' name='type' value='clean'>
-				</form>
-				<form action='#' method='POST'>
-					<input type='hidden' name='new' value='true'>					
-					<input type='hidden' name='url' value='{{values[0]}}'>					
-					<input class="button" type='submit' name='type' value='dirty'>
-				</form>
-
-				<form action='#' method='POST'>
-					<input type='hidden' name='new' value='true'>					
-					<input type='hidden' name='url' value='{{values[0]}}'>					
-					<input class="button" type='submit' name='type' value='trash'>
+					<p><input class="button" type='submit' name='type' value='clean'><input class="button" type='submit' name='type' value='dirty'></p>
+					<input class="button" type='submit' name='type' value='unclear'>
+					</p>
 				</form>
 				
 			</div>

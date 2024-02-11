@@ -1,10 +1,62 @@
 {% extends 'base.html'%}
 {% block title%}Home Page{% endblock%}
 
+
 {% block content%}
-<div class='title'>
-    <h1>
-      UGAHacks
-    </h1>
-      
+
+
+    <div class='reward_div'>
+        <div class='points_div'>
+            <h1>Philip, you have earned 3050 cans!</h1>
+        </div>
+        <div>
+            <div class='options_div'>
+                    <p>
+                        <form action='/route' method='POST'><input class="button" type='submit' name='submit' value='Get Route'></form>
+                        <form action='/upload' method='POST'><input class="button" type='submit' name='submit' value='Upload'></form>
+                        <form action='/rewards' method='POST'><input class="button" type='submit' name='submit' value='Redeem'></form>
+
+
+            </div>
+        </div>
+    </div>
+ 
+
+
+    <style>
+        #map {
+            height: 50%;
+         }
+    </style>
+    <div id="map"></div>
+
+
+<script>
+  var map;
+  var mapCenter = {lat: 33.9517298, lng: -83.37606508247568}
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: mapCenter,
+      zoom: 17
+    });
+
+
+    new google.maps.Marker({
+        position: mapCenter,
+        map,
+        title: "Hello World!",
+      });
+
+
+  }
+</script>
+
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL2hXd1GhFewItloD4CFiVRwKG50hX-_0&callback=initMap"
+ async defer></script>
+
+
+
+
   {% endblock %}
+

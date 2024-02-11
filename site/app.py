@@ -131,6 +131,16 @@ cars = ['static/images/cars/car1.jpg',
 def home():
     return render_template('index.html')
 
+#Upload page
+@app.route('/upload', methods={'POST','GET'})
+def upload():
+    return render_template('upload.html')
+
+#Rewards page
+@app.route('/rewards', methods={'POST','GET'})
+def rewards():
+    return render_template('rewards.html')
+
 #Training page
 @app.route('/train', methods={'POST','GET'})
 def train():

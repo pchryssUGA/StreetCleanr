@@ -98,3 +98,51 @@ body {
     font-size: 40px;
 }
 
+.map_div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map_button {
+    background-color: #92D293;
+    width: 400px;
+    height: 70px;
+    font-size: 40px;
+}
+
+.map_div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.map_button {
+    background-color:#92D293;
+    width: 400px;
+    height: 70px;
+    font-size: 40px;
+}
+
+
+.reward_div {
+    height: 300px;
+}
+
+
+.points_div {
+    margin-top: 25px;
+    text-align: center;
+}
+
+
+.options_div {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+

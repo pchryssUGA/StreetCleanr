@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Upload{% endblock %}
+{% block style %}{{url_for('static', filename='styles/style.css')}}{% endblock%}
+{% block content%}
+    	<<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Before and After Cleaning</title>
+		</head>
+		<body>
+			<h1>Take a picture of the location before cleaning, and after</h1>
+			<div id="upload-container">
+				<div class="upload-box">
+					<input type="file" id="before-image" accept="image/*" onchange="previewImage('before-image', 'before-image-preview')">
+					<label for="before-image">Upload Before Image</label>
+					<img id="before-image-preview" class="uploaded-image" src="#" alt="Before Cleaning" style="display:none;">
+				</div>
+				<div class="upload-box">
+					<input type="file" id="after-image" accept="image/*" onchange="previewImage('after-image', 'after-image-preview')">
+					<label for="after-image">Upload After Image</label>
+					<img id="after-image-preview" class="uploaded-image" src="#" alt="After Cleaning" style="display:none;">
+				</div>
+			</div>
+		
+			<script>
+				function previewImage(inputId, imageId) {
+					const input = document.getElementById(inputId);
+					const image = document.getElementById(imageId);
+		
+					if (input.files && input.files[0]) {
+						const reader = new FileReader();
+		
+						reader.onload = function(e) {
+							image.src = e.target.result;
+							image.style.display = "block";
+						};
+		
+						reader.readAsDataURL(input.files[0]);
+					}
+				}
+			</script>
+		</body>
+		</html>
+		
+{% endblock %}

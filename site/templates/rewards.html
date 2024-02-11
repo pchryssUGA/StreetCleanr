@@ -1,14 +1,82 @@
 {% extends 'base.html' %}
-{% block title %}Generate Random Player{% endblock %}
-{% block style %}{{url_for('static', filename='styles/reward.css')}}{% endblock%}
-{% block content%}
-    	<style>
-    	</style>
-		<div class="test_div">
-			<div class='title'>
-				<h1 class='rewardsty'>Rewards</h1>
-			</div>
-            <h2 class ='rewardsty'>Redeem $5 amazon gift card (200 points)</h2>
-            <h2 class ='rewardsty'>Redeem $10 amazon gift card (400 points)</h2>
-    	</div>
+{% block title %}Rewards{% endblock %}
+{% block style %}{{ url_for('static', filename='styles/rewards.css') }}{% endblock %}
+{% block content %}
+<style>
+/* Additional CSS for the fake rewards page */
+.reward-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.reward-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.reward-description {
+    font-size: 18px;
+    color: #666;
+}
+
+.reward-container {
+    margin-top: 50px; /* Adjust this value to set the desired gap */
+}
+
+.total-cans {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+</style>
+
+<div class="container reward-container">
+    <div class="total-cans">You have 3050 cans!</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="reward-item">
+                <h2 class="reward-title">20 Paw Points</h2>
+                <p class="reward-description">200 cans</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="reward-item">
+                <h2 class="reward-title">80 Paw Points</h2>
+                <p class="reward-description">500 cans</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="reward-item">
+                <h2 class="reward-title">$5 Amazon Giftcard</h2>
+                <p class="reward-description">700 cans</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="reward-item">
+                <h2 class="reward-title">$10 Dunkin Donuts Giftcard</h2>
+                <p class="reward-description">900 cans</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="reward-item">
+                <h2 class="reward-title">$10 Amazon Giftcard</h2>
+                <p class="reward-description">1200 cans</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="reward-item">
+                <h2 class="reward-title">$15 Dunkin Donuts Giftcard</h2>
+                <p class="reward-description">1100 cans</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -36,6 +36,13 @@ font-size: 30px;
 	margin-top: 10px;
 }
 
+.test_new_button {
+	font-weight: 400;
+	margin-top: 10px;
+	width: 150px;
+	background-color: #92D293;
+}
+
 .test_div {
 	display: block;
 	text-align: center;
