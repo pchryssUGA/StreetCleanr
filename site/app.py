@@ -47,14 +47,12 @@ def train():
         img_type = request.form['type']
         img_url = request.form['url']
         img_name = img_url.split('/')[-1]
-        print(img_name)
         #dest = os.path.join('site',this_dir, img_type, img_name)
         dest_path = os.path.join('site', this_dir, img_type, img_name)
         img_path = os.path.join('site', img_url)
         os.rename(img_path, dest_path)
     ran = random.choice(os.listdir(os.path.join('site',this_dir,'new')))
     img_url = os.path.join(this_dir,'new',ran)
-    print(img_url + " !!!!!!!!!!!!!!!!THIS IS ITT BRO")
     return render_template('train.html',values=[img_url])
 
 @app.route('/route', methods={'POST','GET'})

@@ -7,7 +7,7 @@ import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D, Dropout
 from tensorflow.keras.metrics import Precision, Recall, BinaryAccuracy
-from tensorflow.keras.callbacks import load_model
+from tensorflow.keras.models import load_model
 
 # Limit GPU memory usage
 gpus = tf.config.experimental.list_physical_devices('GPU')
@@ -16,12 +16,14 @@ for gpu in gpus:
 
 
 # Load the model
-data_dir = os.path.join('classification', 'data')
+data_dir = os.path.join('site','static', 'testing', 'data')
 image_exts = ['jpeg', 'jpg', 'png', 'bmp']
 
 for image_class in os.listdir(data_dir):
     if image_class == '.DS_Store':
         os.remove(os.path.join(data_dir, image_class))
+        continue
+    if image_class == 'trash' or image_class == 'new':
         continue
     for image in os.listdir(os.path.join(data_dir, image_class)):
         image_path = os.path.join(data_dir, image_class, image)
@@ -34,10 +36,16 @@ for image_class in os.listdir(data_dir):
         except Exception as e:
             print('Issue with image {}'.format(image_path))
 
-data = tf.keras.utils.image_dataset_from_directory(data_dir)
+data = tf.keras.utils.image_dataset_from_directory(data_dir, batch_size=32)
 
 data_iterator = data.as_numpy_iterator()
 batch = data_iterator.next()
+
+fig, ax = plt.subplots(ncols=4, figsize=(20,20))
+for idx, img in enumerate(batch[0][:4]):
+    ax[idx].imshow(img.astype(int))
+    ax[idx].title.set_text(batch[1][idx])
+#plt.show()
 
 data = data.map(lambda x, y: (x/255, y))
 data.as_numpy_iterator().next()
@@ -94,19 +102,107 @@ pre = Precision()
 re = Recall()
 acc = BinaryAccuracy()
 
+for batch in test.as_numpy_iterator(): 
+    X, y = batch
+    yhat = model.predict(X)
+    pre.update_state(y, yhat)
+    re.update_state(y, yhat)
+    acc.update_state(y, yhat)
+
 #Print the precision, recall, and accuracy
 print(f'Precision:{pre.result().numpy()}, Recall:{re.result().numpy()}, Accuracy:{acc.result().numpy()}')
 
-img = cv2.imread(os.path.join('classification','clean.jpg'))
+img = cv2.imread(os.path.join('site','static','images','dirty.jpg'))
 resize = tf.image.resize(img, (256, 256))
 yhat = model.predict(np.expand_dims(resize/255, axis=0))
-
+print(yhat)
 if yhat > 0.5: 
     print(f'Predicted class is dirty')
 else:
     print(f'Predicted class is clean')
 
-# Save the model
-#model.save(os.path.join('models', 'streetsmodel.h5'))
-#new_model = load_model(os.path.join('models', 'streetsmodel.h5'))
-#yhatnew = new_model.predict(np.expand_dims(resize/255, 0))
+img = cv2.imread(os.path.join('site','static','images','dirty2.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','dirty3.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','dirty4.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','dirty5.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','clean.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','clean2.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','clean3.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','clean4.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+img = cv2.imread(os.path.join('site','static','images','clean5.jpg'))
+resize = tf.image.resize(img, (256, 256))
+yhat = model.predict(np.expand_dims(resize/255, axis=0))
+print(yhat)
+if yhat > 0.5: 
+    print(f'Predicted class is dirty')
+else:
+    print(f'Predicted class is clean')
+
+#Save the model
+model.save(os.path.join('site','models', 'streetsmodel.h5'))
+new_model = load_model(os.path.join('site','models', 'streetsmodel.h5'))
+yhatnew = new_model.predict(np.expand_dims(resize/255, 0))
