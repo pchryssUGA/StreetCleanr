@@ -5,11 +5,11 @@
 <div class='title'>
     <div class="result">
         <div class='img_div'>
-            <img id='image' src='{{values[1]}}'>
+            <img id='image' src='{{values[0]}}'>
         </div>
-        <h1>
-            This is a {{values[0]}} street!
-        </h1>
+        
+        <div><h1>This is a {{values[1]}} image!</h1></div>
+
         <form action='../test' method='POST'>
             <input class="button" type='submit' name='submit' value='Test New Image' style="font-size: 40px;"></p>
             <input type='hidden' name='new' value='new'>

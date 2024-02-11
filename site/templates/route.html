@@ -4,22 +4,62 @@
 
 <script>
     function init() {
-        var input = document.getElementById('locationTextField');
-        var autocomplete = new google.maps.places.Autocomplete(input);
+        var input0 = document.getElementById('locationTextField');
+        var autocomplete0 = new google.maps.places.Autocomplete(input0);
+
+        var input1 = document.getElementById('trash1TextField');
+        var autocomplete1 = new google.maps.places.Autocomplete(input1);
+
+        var input2 = document.getElementById('trash2TextField');
+        var autocomplete2 = new google.maps.places.Autocomplete(input2);
+
+        var input3 = document.getElementById('trash3TextField');
+        var autocomplete3 = new google.maps.places.Autocomplete(input3);
+
+        var input4 = document.getElementById('trash4TextField');
+        var autocomplete4 = new google.maps.places.Autocomplete(input4);
+
+        var input5 = document.getElementById('trash5TextField');
+        var autocomplete5 = new google.maps.places.Autocomplete(input5);
     }
 
     google.maps.event.addDomListener(window, 'load', init);
 </script>   
 
-    <form action='/map' method='post'>
-        <input type='hidden' name='submit' value='Fix Image'>
-        <label for="locationTextField">Location</label>
-        <input id="locationTextField" type="text" name='location' size="50" value=''>
-        <p><input type='text' name='password' placeholder='Enter time available'/></p>
-        <p><input type='submit' value='Find Route!'/></p>
-    </form> 
+<div class='full_route'>
+    <div class='route_div'>
+        <form action='/map' method='post'>
+            <label for="locationTextField">Location</label>
+            <input class='iput'id="locationTextField" placeholder='Enter your starting/ending location' type="text" name='location' size="75" value=''>
+            <br>
+            <br>
+            <label for="trash1TextField">Trash #1</label>
+            <input class='iput' id="trash1TextField" placeholder='Enter trash location #1' type="text" name='trash1' size="75" value=''>
+            <br>
+            <label for="trash2TextField">Trash #2</label>
+            <input class='iput' id="trash2TextField" placeholder='Enter trash location #2' type="text" name='trash2' size="75" value=''>
+            <br>
+            <label for="trash3TextField">Trash #3</label>
+            <input class='iput' id="trash3TextField" placeholder='Enter trash location #3' type="text" name='trash3' size="75" value=''>
+            <br>
+            <label for="trash4TextField">Trash #4</label>
+            <input class='iput' id="trash4TextField" placeholder='Enter trash location #4' type="text" name='trash4' size="75" value=''>
+            <br>
+            <label for="trash5TextField">Trash #5</label>
+            <input class='iput' id="trash5TextField" placeholder='Enter trash location #5' type="text" name='trash5' size="75" value=''>
+            <br>
+            <br>
+            <div class='find_div'><input class='find_button' type='submit' value='Find Route!'/></div>
+        </form> 
+    </div>
+</div>
 
-    
-
+<div class='disclaimer_all'>
+    <div class="disclaimer_div"> 
+        <h5>*Disclaimer: With an established database up nearby trash locations, the user would not be required to enter trash locations.
+            The prompt is used to display how the algorithm provides the user with an optimized route that visits each location. In practice,
+            The user would be given a route containing the 5 closest trash locations to their starting location.*
+    </div>
+</div>
 
 {% endblock %}
