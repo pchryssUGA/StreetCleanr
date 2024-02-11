@@ -25,12 +25,6 @@ cars = ['static/images/cars/car1.jpg',
         'static/images/cars/car5.jpg',
         'static/images/cars/car6.jpg']
 
-places = ['Tate Student Center, Baxter Street, Athens, GA, US',
-          'Joe Frank Harris Commons, Athens, GA, USA',
-          'Boyd Graduate Studies Research Center, D. W. Brooks Drive, Athens, GA, USA,',
-          'The Niche Dining Commons, Athens, GA, USA',
-          'UGA Arch, U.S. 78 Business, Athens, GA, USA']
-
 #Home page
 @app.route('/', methods={'POST','GET'})
 def home():
@@ -51,8 +45,26 @@ def route():
 @app.route('/map', methods={'POST','GET'})
 def map():
     if request.method == 'POST':
+        waypoints = [request.form['trash1'],
+                 request.form['trash2'],
+                 request.form['trash3'],
+                 request.form['trash4'],
+                 request.form['trash5']] 
+        MAP_API = 'https://maps.googleapis.com/maps/api/geocode/json?'
+        KEY = 'AIzaSyBL2hXd1GhFewItloD4CFiVRwKG50hX-_0'
         location = request.form['location']
-    return render_template('map.html', values=[location, places])
+        location.encode(encoding='UTF-8')
+        response = requests.get(MAP_API+'address='+location+'&key='+KEY)
+        json = response.json()['results'][0]['geometry']['location']
+        lat = str(json['lat'])
+        lng = str(json['lng'])
+        for i in range(len(waypoints)):
+            curr = waypoints[i]
+            curr.encode(encoding='UTF-8')
+            response = requests.get(MAP_API+'address='+curr+'&key='+KEY)
+            json = response.json()['results'][0]['geometry']['location']
+            waypoints[i] = ''+str(json['lat'])+','+str(json['lng'])
+    return render_template('map.html', values=[lat,lng,waypoints[0], waypoints[1],waypoints[2],waypoints[3],waypoints[4]])
 
 if __name__ == '__main__':
     app.run(debug=True)

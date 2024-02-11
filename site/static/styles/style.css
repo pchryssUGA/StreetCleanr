@@ -1,7 +1,7 @@
 body {
     font-family: 'Oswald', sans-serif;
     background-color: #F5F5DC;
-    color: #013369;
+    color: black;
 }
 
 .navbar {
@@ -60,6 +60,41 @@ body {
 
 }
 
-#locationTextField {
-    width: 500px;
+.route_div {
+    justify-content: center;
+    align-items: center;
 }
+
+.full_route {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.find_div {
+    display: flex;
+    justify-content: center;
+}
+
+.iput {
+    height: 40px;
+}
+
+.disclaimer_all {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+.disclaimer_div {
+    width: 700px;
+    text-align: center;
+}
+
+.find_button {
+    background-color:#92D293;
+    width: 225px;
+    height: 70px;
+    font-size: 40px;
+}
+
